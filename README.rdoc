@@ -1,8 +1,8 @@
 == Recapitulator
 (working title)
 
-A classroom tool for reflecting and recapitulating after a lesson with the questions created by the students.
+A classroom tool for reflecting and recapitulating after a lesson with questions created by the students.
 
-[Daniela Grossmann](danielagrossmann.com)
+Daniela Grossmann - danielagrossmann.com
 San Francisco, 2012
 
