@@ -1,5 +1,5 @@
 class Question < ActiveRecord::Base
-  attr_accessible :text, :mistake_type, :awesome
+  attr_accessible :text, :mistake_type, :awesome, :number_answers
 
   has_many :answers
 

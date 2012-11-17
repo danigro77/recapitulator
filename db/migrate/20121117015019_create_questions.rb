@@ -3,6 +3,7 @@ class CreateQuestions < ActiveRecord::Migration
     create_table :questions do |t|
       t.string  :text
 
+      t.integer :number_answers
       t.integer :mistake_type
       t.boolean :awesome
 
