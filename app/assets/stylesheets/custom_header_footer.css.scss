@@ -1,0 +1,37 @@
+/*************************
+		HEADER & FOOTER
+*************************/
+$font_color: white;
+$font_highlight: gray;
+$background_color: orange;
+
+.header_footer {
+	position: fixed;
+	width: 100%;
+	color: $font_color;
+	background: $background_color;
+	padding: 0 10px;
+	margin: 0;
+	ul {
+		list-style-type:none;
+		margin: 0;
+		padding: 0;
+		li {
+			display: inline;
+			a:hover {
+				color: $font_highlight;
+			}
+			
+		}
+	}
+}
+
+header.header_footer {
+	top: 0;
+	height: 60px;
+}
+
+footer.header_footer {
+	bottom:0;
+	height: 40px;
+}

@@ -1,0 +1,28 @@
+$font_color: black;
+$font_highlight: gray;
+$background_color: orange;
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+div#wrapper {
+}
+
+div#content {
+	width: 1000px;
+	height: 5000px;
+	margin: 100px auto;
+	background: yellow;
+}
+
+a {
+	color: $font_highlight;
+	&:hover {
+		color: $background_color;
+	}
+	&:visited, &:active {
+		color: $font_highlight;
+	}
+}

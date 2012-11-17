@@ -1,4 +1,6 @@
 Recapitulator::Application.routes.draw do
+  root :to => 'open_pages#index'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
