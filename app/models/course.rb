@@ -5,7 +5,7 @@ class Course < ActiveRecord::Base
   has_many    :lessons
 
   has_many    :course_users
-  has_many    :users :through => :courses_users
+  has_many    :users, :through => :courses_users
 
   belongs_to  :grade_of_school
 

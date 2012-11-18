@@ -3,5 +3,6 @@ class GradeOfSchool < ActiveRecord::Base
 
   has_many :users
   has_many :courses
+  belongs_to :school
 
 end
