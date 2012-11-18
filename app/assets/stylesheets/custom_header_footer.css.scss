@@ -29,6 +29,15 @@ $background_color: orange;
 header.header_footer {
 	top: 0;
 	height: 60px;
+	h1 {
+		float: left;
+		# width: 50%
+	}
+	ul {
+		float: right;
+		margin-right: 20px;
+		margin-top: 30px;
+	}
 }
 
 footer.header_footer {

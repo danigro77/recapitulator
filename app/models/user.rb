@@ -1,17 +1,25 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :email, :password, :password_confirmation
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :confirmable,
+  # :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :username
+  # attr_accessible :name, :email, :password, :password_confirmation
 
   has_many    :questions
   has_many    :scores
 
   has_many    :courses_users
-  has_many    :courses, :trough => :courses_users
+  has_many    :courses, :through => :courses_users
 
   belongs_to  :school
   belongs_to  :role
   belongs_to  :grade_of_school
 
-  has_secure_password
+  # has_secure_password
   validates :password, :presence => { :on => :create }
 
   validates :name, presence: true, length: { maximum: 50 }
@@ -19,4 +27,7 @@ class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
+  
+  validates_presence_of :username
+  
 end

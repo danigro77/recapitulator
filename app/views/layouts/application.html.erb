@@ -14,7 +14,11 @@
 	
 	<div id="wrapper">
 		<div id="content">
+			<h2><%= yield(:heading) %></h2>
+			<%= render 'layouts/flash_message' %>
+			
 			<%= yield %>
+			
 		</div>
 	</div>
 	

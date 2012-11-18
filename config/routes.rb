@@ -1,5 +1,9 @@
 Recapitulator::Application.routes.draw do
+  devise_for :users
+
   root :to => 'open_pages#index'
+  
+  match 'teachers/index' => 'teacher_pages#index'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
