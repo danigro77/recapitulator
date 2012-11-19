@@ -1,15 +1,18 @@
 <%= form_for(@lesson) do |f| %>
 
-  <div class="field"><%= f.label :title %><br />
-  <%= f.text_field :title %></div>
+  <div class="field">
+		<%= f.label :title %><br />
+  	<%= f.text_field :title %>
+	</div>
 
   <div class="field">
 		<!-- <%= f.label :date %><br />
     <%= f.text_field :date %> -->
-	<%= f.date_select("lesson", "date", :use_month_numbers => true, :default => Date.today, :start => Date.today,
+		<%= f.date_select("lesson", "date", :use_month_numbers => true, :default => Date.today, :start => Date.today,
 								:prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year' },
 								:field_name => "Held on:") %>
 	</div>
+	
 	<div><%= f.submit %></div>
 <% end %>
 

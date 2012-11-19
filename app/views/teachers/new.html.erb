@@ -1,4 +1,4 @@
-<% provide(:title, "New #{name}") %>
-<% provide(:heading, "New #{name}") %>
+<% provide(:title, "New #{params[:name]}") %>
+<% provide(:heading, "New #{params[:name]}") %>
 
-<%= render "teachers/form_#{name}" %>
+<%= render "form_#{params[:name]}" %>

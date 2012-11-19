@@ -1,7 +1,7 @@
 module ApplicationHelper
   
   def full_title(title = "")
-    base_title = "Recapitulator"
+    base_title = "The-Anchor-Effect"
     if title.empty?
       base_title
     else

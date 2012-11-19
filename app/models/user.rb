@@ -6,14 +6,16 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :username
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :username, :courses, :id
   # attr_accessible :name, :email, :password, :password_confirmation
+  
+  # accepts_nested_attributes_for :courses
 
   has_many    :questions
   has_many    :scores
 
-  has_many    :courses_users
-  has_many    :courses, :through => :courses_users
+  has_many    :course_users
+  has_many    :courses, :through => :course_users
 
   belongs_to  :school
   belongs_to  :role
@@ -28,6 +30,6 @@ class User < ActiveRecord::Base
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   
-  validates_presence_of :username
-  
+  validates :username, presence: true, length: { maximum: 20 }
+    
 end

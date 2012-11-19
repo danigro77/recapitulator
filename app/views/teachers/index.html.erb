@@ -1,11 +1,13 @@
 <% provide(:title, "Teacher") %>
 <% provide(:heading, "Welcome, teacher!") %>
 
-<%= link_to "new course", new_teacher_path, :name => 'course'%>
+<%= link_to "new course", new_teacher_path(:name => 'course') %>
 
-<p>All courses:</p>
-<ul>
-	<% @courses.each do |course| %>
-	<li><%= course.title %></li>
-	<% end %>
-</ul>
+<% unless @courses.blank? %>
+	<p>All courses:</p>
+	<ul>
+		<% @courses.each do |course| %>
+		<li><%= link_to course.title, teacher_path(:c_id => course.id) %></li>
+		<% end %>
+	</ul>
+<% end %>

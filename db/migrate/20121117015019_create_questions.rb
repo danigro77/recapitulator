@@ -5,7 +5,7 @@ class CreateQuestions < ActiveRecord::Migration
 
       t.integer :number_answers
       t.integer :mistake_type
-      t.boolean :awesome
+      t.integer :awesome
 
       t.integer :lesson_id
       t.integer :user_id

@@ -4,6 +4,7 @@ Recapitulator::Application.routes.draw do
   root :to => 'open_pages#index'
   
   resources :teachers
+  resources :students
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
