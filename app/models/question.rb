@@ -1,16 +1,18 @@
 class Question < ActiveRecord::Base
-  attr_accessible :text, :mistake_type, :awesome, :number_answers
-  
-  before_save :default_values
+  attr_accessible :text, :mistake_type, :awesome
+  before_save :number_of_answers
 
   has_many :answers
 
   belongs_to :user
   belongs_to :lesson
-
-  def default_values
-    self.number_answers ||= 4
-    self.mistake_types ||= 0
-    self.awesome ||= 0
+  
+  MISTAKE_TYPES = {
+    :no_mistakes => 0,
+    :spelling_mistake => 1
+  }.freeze
+  
+  def number_of_answers
+    self.number_answers ||= self.lesson.number_of_answers
   end
 end

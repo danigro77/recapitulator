@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(:version => 20121118202932) do
     t.string   "text"
     t.integer  "number_answers"
     t.integer  "mistake_type"
-    t.boolean  "awesome"
+    t.integer  "awesome"
     t.integer  "lesson_id"
     t.integer  "user_id"
     t.datetime "created_at",     :null => false

@@ -12,17 +12,22 @@ class TeachersController < ApplicationController
     @lessons = Lesson.where(["course_id = ?", @course.id])
   end
   
-  def new # TODO
+  def new 
     case params[:name] 
     when "course" 
-      # @teacher = User.find(current_user.id)
       @course = Course.new
-      @course.user_id = current_user.id         #???? many-to-many
+      @course.users << current_user
     when "lesson" 
-      # @course = Course.find(params[:c_id])
+      @date_today = Date.today
+      @answer_range = (1..MAX_ANSWERS).to_a
       @lesson = Lesson.new
       @lesson.course_id = params[:c_id]
     end
+  end
+  
+  def create
+    @lesson = Lesson.new params[:lesson]
+    @lesson.save
   end
 
 end
