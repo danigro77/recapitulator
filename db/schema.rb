@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121118202932) do
+ActiveRecord::Schema.define(:version => 20121117235112) do
 
   create_table "answers", :force => true do |t|
     t.string   "text"
@@ -21,13 +21,6 @@ ActiveRecord::Schema.define(:version => 20121118202932) do
     t.datetime "updated_at",   :null => false
   end
 
-  create_table "course_users", :force => true do |t|
-    t.integer  "course_id"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "courses", :force => true do |t|
     t.string   "title"
     t.integer  "grade_of_school_id"
@@ -35,21 +28,29 @@ ActiveRecord::Schema.define(:version => 20121118202932) do
     t.datetime "updated_at",         :null => false
   end
 
+  create_table "courses_users", :id => false, :force => true do |t|
+    t.integer  "course_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "grades_of_schools", :force => true do |t|
     t.string   "name"
+    t.integer  "school_id"
     t.datetime "start_date"
     t.datetime "end_date"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.integer  "school_id"
   end
 
   create_table "lessons", :force => true do |t|
     t.string   "title"
+    t.integer  "number_of_answers"
     t.datetime "date"
     t.integer  "course_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "objectives", :force => true do |t|
@@ -79,10 +80,11 @@ ActiveRecord::Schema.define(:version => 20121118202932) do
   create_table "schools", :force => true do |t|
     t.string   "name"
     t.string   "location"
+    t.string   "state"
     t.string   "country"
+    t.string   "url"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "url"
   end
 
   create_table "scores", :force => true do |t|
@@ -97,6 +99,7 @@ ActiveRecord::Schema.define(:version => 20121118202932) do
 
   create_table "users", :force => true do |t|
     t.string   "name"
+    t.string   "username"
     t.integer  "school_id"
     t.integer  "grade_of_school_id"
     t.integer  "role_id"
@@ -112,7 +115,6 @@ ActiveRecord::Schema.define(:version => 20121118202932) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "username"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

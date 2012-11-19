@@ -9,7 +9,9 @@ class Question < ActiveRecord::Base
   
   MISTAKE_TYPES = {
     :no_mistakes => 0,
-    :spelling_mistake => 1
+    :spelling_mistake => 1,
+    :fact_mistake => 2,
+    :spelling_fact_mistake => 3
   }.freeze
   
   def number_of_answers
